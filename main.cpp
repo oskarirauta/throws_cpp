@@ -7,11 +7,8 @@
 void myFunc() {
 
 	std::cout << "throwing now\n" << std::endl;
-
-	throws << "   this is" << " error\n" << "  second line  " << std::endl;
-
-	std::cout << "\ndid throw" << std::endl;
-
+	throws << "this is" << " " << "error\n" << "with 2 lines(but line feeds are trimmed)" << std::endl;
+	std::cout << "\ndid throw (you should not be seeing this line, because we have just been thrown..)" << std::endl;
 }
 
 int main(int argc, char **argv) {
@@ -20,12 +17,12 @@ int main(int argc, char **argv) {
 		myFunc();
 	} catch ( const std::runtime_error& e ) {
 
-		std::cout << "got throw.." << std::endl;
-		std::cout << "function myFunc throw'd: '" << e.what() << "'" << std::endl;
+		std::cout << "function myFunc did throw with a reason: '" << e.what() << "'" << std::endl;
 
 	}
 
-	throws << "hello" << std::endl;
+	std::cout << "\nNow throwing without try.." << std::endl;
+	throws << "error without trying" << std::endl;
 
 	return 0;
 
