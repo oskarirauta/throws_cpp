@@ -6,7 +6,7 @@
 
 void myFunc() {
 
-	std::cout << "throwing now\n" << std::endl;
+	std::cout << "\nthrowing now" << std::endl;
 	throws << "this is" << " " << "error\n" << "with 2 lines(but line feeds are trimmed)" << std::endl;
 	std::cout << "\ndid throw (you should not be seeing this line, because we have just been thrown..)" << std::endl;
 }
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 
 	}
 
-	std::cout << "\nNow throwing without try.." << std::endl;
+	std::cout << "\nNow throwing without trying..." << std::endl;
 	throws << "error without trying" << std::endl;
 
 	return 0;
