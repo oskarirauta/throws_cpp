@@ -2,7 +2,9 @@
 #include "throws.hpp"
 
 THROWS_T throws;
-static std::string throw_desc;
+// thread_local so concurrent throws<< from different threads don't corrupt
+// each other's pending message (the buffer is per-thread).
+static thread_local std::string throw_desc;
 
 static std::string whitespace = " \t\n\r\f\v";
 
@@ -52,7 +54,7 @@ std::string THROWS_T::flush() const {
 }
 
 [[noreturn]]
-const THROWS_T& operator <<(const THROWS_T& os, const THROWS_T::endl_type endl) {
+const THROWS_T& operator <<(const THROWS_T&, const THROWS_T::endl_type) {
 
 	std::string reason = trim_ws(throws.flush());
 	throw std::runtime_error(reason.empty() ? "unknown error" : reason);
