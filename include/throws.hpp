@@ -27,4 +27,4 @@ class THROWS_T {
 extern THROWS_T throws;
 
 [[noreturn]]
-const THROWS_T& operator <<(const THROWS_T& os, const THROWS_T::endl_type endl);
+const THROWS_T& operator <<(const THROWS_T& os, THROWS_T::endl_type endl);

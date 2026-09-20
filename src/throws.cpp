@@ -54,7 +54,7 @@ std::string THROWS_T::flush() const {
 }
 
 [[noreturn]]
-const THROWS_T& operator <<(const THROWS_T&, const THROWS_T::endl_type) {
+const THROWS_T& operator <<(const THROWS_T&, THROWS_T::endl_type) {
 
 	std::string reason = trim_ws(throws.flush());
 	throw std::runtime_error(reason.empty() ? "unknown error" : reason);
